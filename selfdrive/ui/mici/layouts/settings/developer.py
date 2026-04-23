@@ -168,7 +168,7 @@ class DeveloperLayoutMici(NavScroller):
     global _bridge_proc
     if state:
       if _bridge_proc is None or _bridge_proc.poll() is not None:
-        _bridge_proc = subprocess.Popen([BRIDGE_PATH, "can"])
+        _bridge_proc = subprocess.Popen([BRIDGE_PATH, "can,selfdriveState,selfdriveStateSP"])
     else:
       if _bridge_proc is not None and _bridge_proc.poll() is None:
         _bridge_proc.send_signal(signal.SIGTERM)
